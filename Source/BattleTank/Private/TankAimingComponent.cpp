@@ -15,7 +15,7 @@ UTankAimingComponent::UTankAimingComponent()
 	// ...
 }
 
-
+/*
 // Called when the game starts
 void UTankAimingComponent::BeginPlay()
 {
@@ -24,7 +24,7 @@ void UTankAimingComponent::BeginPlay()
 	// ...
 	
 }
-
+*/
 void UTankAimingComponent::Initialise(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet)
 {
 	Barrel = BarrelToSet;
@@ -40,15 +40,15 @@ void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 	// ...
 }
 
-void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
+void UTankAimingComponent::AimAt(FVector HitLocation)
 {
 	if(!ensure(Barrel)) { return; }
 
 	FVector OutLaunchVelocity;
 	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile"));
 
-	//calculate the outlaunch velocity
 	bool bHaveAimSolution = (UGameplayStatics::SuggestProjectileVelocity(this, OutLaunchVelocity, StartLocation, HitLocation, LaunchSpeed, false, 0, 0, ESuggestProjVelocityTraceOption::DoNotTrace)); // if we calc launch vel.
+	
 	if (bHaveAimSolution) 
 	{
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
