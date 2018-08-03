@@ -20,11 +20,12 @@ ATank::ATank()
 // Called when the game starts or when spawned
 void ATank::BeginPlay()
 {
-	Super::BeginPlay();
+	Super::BeginPlay(); // Needed for BP Begin Play
 }
 
 void ATank::AimAt(FVector HitLocation)
 {
+	if (!TankAimingComponent) { return;  }
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 
