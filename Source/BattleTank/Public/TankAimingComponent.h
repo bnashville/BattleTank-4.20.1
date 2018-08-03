@@ -7,6 +7,14 @@
 #include "kismet/GamePlayStatics.h"
 #include "TankAimingComponent.generated.h"
 
+UENUM()
+enum class EFiringState : uint8
+{
+	Reloading,
+	Aiming,
+	Locked
+};
+
 // Foward Declaration
 class UTankBarrel; 
 class UTankTurret;
@@ -30,6 +38,9 @@ public:
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
+
+	UPROPERTY(BlueprintReadOnly, Category = "State")
+	EFiringState FiringState = EFiringState::Reloading;
 
 private:	
 	UTankBarrel* Barrel = nullptr;
