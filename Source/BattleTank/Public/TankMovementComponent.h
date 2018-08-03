@@ -25,6 +25,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = Input)
 		void IntendTurnRight(float Throw);
+
+	// TODO Check best method
+
 	
 private:
 	UTankTrack* LeftTrack = nullptr;

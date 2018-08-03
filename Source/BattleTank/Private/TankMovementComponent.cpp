@@ -5,11 +5,11 @@
 
 void UTankMovementComponent::Initialise(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToSet)
 {
-
 	LeftTrack = LeftTrackToSet;
 	RightTrack = RightTrackToSet;
-
 }
+
+void 
 
 void UTankMovementComponent::IntendMoveForward(float Throw)
 {
